@@ -4,16 +4,12 @@ import StorageKey from '../contants/StorageKey';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthNavigation from './AuthNavigation';
 import NonAuthNavigation from './NonAuthNavigation';
+import { useAuth } from '../context/AuthContext';
 
 const RootNavigation = () => {
-  const [isAlreadyLogin, setIsAlreadyLogin] = useState(false);
+  const { isAlreadyLogin } = useAuth();
 
-  useEffect(() => {
-    AsyncStorage.getItem(StorageKey.IS_ALREADY_LOGIN).then(value => {
-      setIsAlreadyLogin(value === 'true');
-    });
-  }, []);
-
+  console.log(`isAlreadyLogin`, { isAlreadyLogin });
   return (
     <NavigationContainer>
       {isAlreadyLogin ? <AuthNavigation /> : <NonAuthNavigation />}
