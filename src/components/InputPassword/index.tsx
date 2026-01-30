@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     top: 10,
   },
   eye_icon: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
   },
 });

@@ -5,7 +5,7 @@ const COLORS = {
   green_2: '#032C2E',
   blue_1: '#0BCAD4',
   white: '#FFFFFF',
-  error_1: 'red',
+  error_1: '#E06379',
 };
 
 export default COLORS;
