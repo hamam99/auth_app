@@ -1,6 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect, useState } from 'react';
-import StorageKey from '../contants/StorageKey';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthNavigation from './AuthNavigation';
 import NonAuthNavigation from './NonAuthNavigation';

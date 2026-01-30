@@ -11,9 +11,11 @@ import RouteName from '../../navigation/RouteName';
 import { RegisterSchema, RegisterType } from '../../schema/RegisterSchema';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useAuth } from '../../context/AuthContext';
 
 const Register = () => {
   const { goBack, navigate } = useNavigation();
+  const { register } = useAuth();
 
   const {
     handleSubmit,
@@ -31,6 +33,7 @@ const Register = () => {
       text2: 'Try to login.',
     });
     goBack();
+    register(data);
   };
 
   const gotoLogin = () => {

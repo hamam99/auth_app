@@ -10,10 +10,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema, LoginType } from '../../schema/LoginSchema';
+import { useAuth } from '../../context/AuthContext';
 
 const Login = () => {
   const navigate = useNavigation().navigate;
 
+  const { login } = useAuth();
   const handleSignUp = () => {
     navigate(RouteName.REGISTER);
   };
@@ -28,10 +30,7 @@ const Login = () => {
   });
 
   const onSubmit = (data: LoginType) => {
-    console.log(`submit`, {
-      data,
-    });
-    navigate(RouteName.HOME);
+    login(data);
   };
 
   return (

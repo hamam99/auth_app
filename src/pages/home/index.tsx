@@ -3,24 +3,24 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Images from '../../assets/images';
 import COLORS from '../../contants/Colors';
 import Button from '../../components/button';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import StorageKey from '../../contants/StorageKey';
+import { useAuth } from '../../context/AuthContext';
 
 const Home = () => {
-  const onLogout = () => {
-    AsyncStorage.setItem(StorageKey.IS_ALREADY_LOGIN, 'false');
-  };
+  const { profile, logout } = useAuth();
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={Images.user} style={styles.image} />
       <View>
-        <Text style={styles.text}>Welcome back, User</Text>
-        <Text style={styles.text}>user@example.com</Text>
+        <Text style={[styles.text, styles.textName]}>
+          Welcome back, <Text style={styles.textNameBold}>{profile?.name}</Text>
+        </Text>
+        <Text style={styles.text}>{profile?.email}</Text>
       </View>
       <Button
         title="Logout"
         backgroundColor={COLORS.error_1}
-        onPress={() => {}}
+        onPress={logout}
         containerStyle={styles.logout}
       />
     </SafeAreaView>
@@ -44,6 +44,12 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
+  },
+  textName: {
+    fontSize: 16,
+  },
+  textNameBold: {
+    fontWeight: 'bold',
   },
   logout: {
     width: 300,
