@@ -6,16 +6,16 @@ import Button from '../../components/button';
 import { useAuth } from '../../context/AuthContext';
 
 const Home = () => {
-  const { profile, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <SafeAreaView style={styles.container}>
       <Image source={Images.user} style={styles.image} />
       <View>
         <Text style={[styles.text, styles.textName]}>
-          Welcome back, <Text style={styles.textNameBold}>{profile?.name}</Text>
+          Welcome back, <Text style={styles.textNameBold}>{user?.name}</Text>
         </Text>
-        <Text style={styles.text}>{profile?.email}</Text>
+        <Text style={styles.text}>{user?.email}</Text>
       </View>
       <Button
         title="Logout"

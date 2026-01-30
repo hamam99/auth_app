@@ -21,7 +21,7 @@ import Toast from 'react-native-toast-message';
 // Create the context
 export const AuthContext = createContext<AuthContextType>({
   isAlreadyLogin: false,
-  profile: undefined,
+  user: undefined,
   login: (_: LoginType) => null,
   logout: () => {},
   register: (_: RegisterType) => null,
@@ -31,11 +31,11 @@ export const AuthContext = createContext<AuthContextType>({
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [profile, setProfile] = useState<ProfileType | null>(null);
+  const [user, setUser] = useState<ProfileType | null>(null);
   const [isAlreadyLogin, setAlreadyLogin] = useState(false);
 
-  const login = async (user: LoginType) => {
-    const userFromDb = await getUserByEmail(user.email);
+  const login = async (loginData: LoginType) => {
+    const userFromDb = await getUserByEmail(loginData.email);
 
     if (!userFromDb) {
       Toast.show({
@@ -46,9 +46,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     setAlreadyLogin(true);
-    setProfile(userFromDb);
+    setUser(userFromDb);
     AsyncStorage.setItem(StorageKey.IS_ALREADY_LOGIN, 'true');
-    AsyncStorage.setItem(StorageKey.PROFILE, JSON.stringify(user));
+    AsyncStorage.setItem(StorageKey.PROFILE, JSON.stringify(userFromDb));
   };
 
   const logout = () => {
@@ -61,8 +61,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const register = async (user: RegisterType) => {
-    const userDb = await getUserByEmail(user.email);
+  const register = async (registerData: RegisterType) => {
+    const userDb = await getUserByEmail(registerData.email);
 
     if (userDb) {
       Toast.show({
@@ -73,7 +73,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const registeredUsers = await getAllRegisteredUsers();
-    registeredUsers.push(user);
+    registeredUsers.push({
+      email: registerData.email,
+      name: registerData.name,
+    });
     Toast.show({
       type: 'success',
       text1: 'Registration successful!',
@@ -85,11 +88,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    getProfile().then(user => {
-      if (!user) {
+    getProfile().then(profile => {
+      if (!profile) {
         return;
       }
-      setProfile(user);
+      setUser(profile);
       setAlreadyLogin(true);
     });
   }, []);
@@ -97,7 +100,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   return (
     <AuthContext.Provider
       value={{
-        profile,
+        user,
         login,
         logout,
         register,

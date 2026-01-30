@@ -4,7 +4,7 @@ import { ProfileType } from './ProfileType';
 
 export type AuthContextType = {
   isAlreadyLogin: boolean;
-  profile: ProfileType | undefined | null;
+  user: ProfileType | undefined | null;
   login: (param: LoginType) => void;
   logout: () => void;
   register: (user: RegisterType) => void;
