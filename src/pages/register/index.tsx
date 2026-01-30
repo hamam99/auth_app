@@ -2,21 +2,29 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useNavigation from '../../navigation/useNavigation';
 import Images from '../../assets/images';
-import { useState } from 'react';
 import InputPassword from '../../components/InputPassword';
 import InputEmail from '../../components/InputEmail';
 import Button from '../../components/button';
 import { Toast } from 'toastify-react-native';
 import COLORS from '../../contants/Colors';
 import RouteName from '../../navigation/RouteName';
+import { RegisterSchema, RegisterType } from '../../schema/RegisterSchema';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const Register = () => {
   const { goBack, navigate } = useNavigation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const onRegister = () => {
+  const {
+    handleSubmit,
+    formState: { errors, isDirty, isValid },
+    control,
+  } = useForm({
+    resolver: yupResolver(RegisterSchema),
+    mode: 'onChange',
+  });
+
+  const onSubmit = (data: RegisterType) => {
     Toast.show({
       type: 'success',
       text1: 'Success register.',
@@ -24,26 +32,69 @@ const Register = () => {
     });
     goBack();
   };
+
+  const gotoLogin = () => {
+    navigate(RouteName.LOGIN);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={goBack}>
         <Image source={Images.back} style={styles.back} />
       </TouchableOpacity>
       <View style={styles.subContainer}>
-        <InputEmail title="Email" onChangeText={setEmail} value={email} />
-        <InputPassword
-          title="Password"
-          onChangeText={setPassword}
-          value={password}
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <InputEmail
+              title="Email"
+              onChangeText={onChange}
+              value={value}
+              errorMessage={errors?.email?.message}
+            />
+          )}
+          name="email"
         />
-        <InputPassword
-          title="Confirm Password"
-          onChangeText={setConfirmPassword}
-          value={confirmPassword}
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <InputPassword
+              title="Password"
+              onChangeText={onChange}
+              value={value}
+              errorMessage={errors?.password?.message}
+            />
+          )}
+          name="password"
         />
-        <Button title="Register" onPress={onRegister} />
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <InputPassword
+              title="Password Confirmation"
+              onChangeText={onChange}
+              value={value}
+              errorMessage={errors?.passwordConfirm?.message}
+            />
+          )}
+          name="passwordConfirm"
+        />
+        <Button
+          title="Register"
+          onPress={handleSubmit(onSubmit)}
+          isDisabled={!isDirty || !isValid}
+        />
 
-        <TouchableOpacity onPress={() => navigate(RouteName.LOGIN)}>
+        <TouchableOpacity onPress={gotoLogin}>
           <Text style={styles.login_text}>Go to Login</Text>
         </TouchableOpacity>
       </View>
