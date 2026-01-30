@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import COLORS from '../../contants/Colors';
 import Button from '../../components/button';
 import InputEmail from '../../components/InputEmail';
@@ -8,28 +7,73 @@ import Images from '../../assets/images';
 import useNavigation from '../../navigation/useNavigation';
 import RouteName from '../../navigation/RouteName';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { LoginSchema, LoginType } from '../../schema/LoginSchema';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const navigate = useNavigation().navigate;
 
-  const onLogin = () => {
+  const handleSignUp = () => {
+    navigate(RouteName.REGISTER);
+  };
+
+  const {
+    handleSubmit,
+    formState: { errors, isDirty, isValid },
+    control,
+  } = useForm({
+    resolver: yupResolver(LoginSchema),
+    mode: 'onChange',
+  });
+
+  const onSubmit = (data: LoginType) => {
+    console.log(`submit`, {
+      data,
+    });
     navigate(RouteName.HOME);
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={Images.app_icon} style={styles.image} />
-      <InputEmail title="Email" onChangeText={setEmail} value={email} />
-      <InputPassword
-        title="Password"
-        onChangeText={setPassword}
-        value={password}
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, value } }) => (
+          <InputEmail
+            title="Email"
+            onChangeText={onChange}
+            value={value}
+            errorMessage={errors?.email?.message}
+          />
+        )}
+        name="email"
+      />
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, value } }) => (
+          <InputPassword
+            title="Password"
+            onChangeText={onChange}
+            value={value}
+            errorMessage={errors?.password?.message}
+          />
+        )}
+        name="password"
       />
 
-      <Button title="Login" onPress={onLogin} />
-      <TouchableOpacity onPress={() => navigate(RouteName.REGISTER)}>
+      <Button
+        title="Login"
+        onPress={handleSubmit(onSubmit)}
+        isDisabled={!isDirty || !isValid}
+      />
+      <TouchableOpacity onPress={handleSignUp}>
         <Text style={styles.register_text}>Go to Signup</Text>
       </TouchableOpacity>
     </SafeAreaView>

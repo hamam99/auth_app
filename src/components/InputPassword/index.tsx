@@ -54,7 +54,7 @@ const InputPassword = ({
           />
         </TouchableOpacity>
       </View>
-      {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
+      <Text style={styles.error}>{errorMessage}</Text>
     </View>
   );
 };
