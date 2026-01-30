@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setAlreadyLogin(false);
     Toast.show({
       type: 'success',
-      text1: 'You have logged out.',
+      text1: 'You have logged out!',
     });
   };
 
