@@ -1,7 +1,7 @@
 import { InferType, object, string } from 'yup';
 
 export const LoginSchema = object({
-  email: string().email().required('Required'),
+  email: string().email('Invalid format').required('Required'),
   password: string().required('Required'),
 });
 
