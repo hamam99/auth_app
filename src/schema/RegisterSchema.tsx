@@ -1,7 +1,7 @@
 import { InferType, object, ref, string } from 'yup';
 
 export const RegisterSchema = object({
-  email: string().email('Invalid format').required('Required'),
+  email: string().email('Email not valid').required('Required'),
   password: string().required('Required').min(6, 'Minimum 6 Characters'),
   passwordConfirm: string()
     .required('Required')
