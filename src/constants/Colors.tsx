@@ -1,4 +1,4 @@
-const COLORS = {
+const Colors = {
   border_1: '#F2F2F2',
   border_2: '#E5E5E5',
   green_1: '#BBEA70',
@@ -8,4 +8,4 @@ const COLORS = {
   error_1: '#E06379',
 };
 
-export default COLORS;
+export default Colors;

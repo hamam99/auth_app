@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import COLORS from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 import fontStyles from '../../styles/FontStyles';
 
 type Props = {
@@ -24,11 +24,11 @@ const Button = ({
   isDisabled = false,
   containerStyle = {},
   textStyle = {},
-  backgroundColor = COLORS.blue_1,
+  backgroundColor = Colors.blue_1,
 }: Props) => {
   const getBackgroundColor = () => {
     if (isDisabled) {
-      return COLORS.border_2;
+      return Colors.border_2;
     }
     return backgroundColor;
   };
@@ -54,14 +54,14 @@ export default Button;
 const styles = StyleSheet.create({
   container: {
     borderRadius: 8,
-    backgroundColor: COLORS.blue_1,
+    backgroundColor: Colors.blue_1,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 12,
   },
   text: {
-    color: COLORS.white,
+    color: Colors.white,
     fontSize: 16,
   },
 });

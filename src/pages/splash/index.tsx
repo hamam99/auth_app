@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Images from '../../assets/images';
-import COLORS from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 import fontStyles from '../../styles/FontStyles';
 
 const Splash = () => {
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    color: COLORS.blue_1,
+    color: Colors.blue_1,
   },
 });

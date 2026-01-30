@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import COLORS from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 import Fonts from '../../constants/Fonts';
 import fontStyles from '../../styles/FontStyles';
 
@@ -29,7 +29,7 @@ const Input = ({
           styles.input_text,
           fontStyles.regular,
           {
-            borderColor: errorMessage ? COLORS.error_1 : COLORS.border_2,
+            borderColor: errorMessage ? Colors.error_1 : Colors.border_2,
           },
         ]}
       />
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   input_text: {
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: COLORS.border_2,
+    borderColor: Colors.border_2,
     paddingHorizontal: 4,
     height: 40,
   },

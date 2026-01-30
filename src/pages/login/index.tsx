@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import COLORS from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 import Button from '../../components/button';
 import Input from '../../components/Input';
 import InputPassword from '../../components/InputPassword';
@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
     gap: 12,
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
   },
   input_text: {
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: COLORS.border_2,
+    borderColor: Colors.border_2,
     paddingHorizontal: 4,
     height: 40,
     fontFamily: Fonts.regular,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   register_text: {
-    color: COLORS.blue_1,
+    color: Colors.blue_1,
     textAlign: 'center',
     marginTop: 12,
     fontSize: 13,

@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import COLORS from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 import { useState } from 'react';
 import Images from '../../assets/images';
 import fontStyles from '../../styles/FontStyles';
@@ -40,7 +40,7 @@ const InputPassword = ({
             styles.input_text,
             fontStyles.regular,
             {
-              borderColor: errorMessage ? COLORS.error_1 : COLORS.border_2,
+              borderColor: errorMessage ? Colors.error_1 : Colors.border_2,
             },
           ]}
         />
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   input_text: {
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: COLORS.border_2,
+    borderColor: Colors.border_2,
     paddingHorizontal: 4,
     height: 40,
   },

@@ -6,7 +6,7 @@ import InputPassword from '../../components/InputPassword';
 import Input from '../../components/Input';
 import Button from '../../components/button';
 import Toast from 'react-native-toast-message';
-import COLORS from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 import RouteName from '../../navigation/RouteName';
 import { RegisterSchema, RegisterType } from '../../schema/RegisterSchema';
 import { Controller, useForm } from 'react-hook-form';
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     paddingTop: 32,
   },
   login_text: {
-    color: COLORS.blue_1,
+    color: Colors.blue_1,
     textAlign: 'center',
     marginTop: 12,
     fontSize: 13,

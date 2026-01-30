@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Images from '../../assets/images';
-import COLORS from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 import Button from '../../components/button';
 import { useAuth } from '../../context/AuthContext';
 import fontStyles from '../../styles/FontStyles';
@@ -23,7 +23,7 @@ const Home = () => {
       </View>
       <Button
         title="Logout"
-        backgroundColor={COLORS.error_1}
+        backgroundColor={Colors.error_1}
         onPress={logout}
         containerStyle={styles.logout}
       />
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: COLORS.white,
+    backgroundColor: Colors.white,
     gap: 12,
   },
   image: {
