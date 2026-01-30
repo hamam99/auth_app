@@ -1,10 +1,11 @@
 # Auth App
 
-A robust React Native authentication application featuring Login, Registration, and Home screens. This project demonstrates a complete authentication flow using Context API for state management, AsyncStorage for data persistence, and React Hook Form with Yup for secure and validated form handling.
+A robust React Native authentication application featuring Splash, Login, Registration, and Home screens. This project demonstrates a complete authentication flow using Context API for state management, AsyncStorage for data persistence, and React Hook Form with Yup for secure and validated form handling.
 
 ## Features
 
 - **User Authentication**: Secure Login and Registration flows.
+- **Splash Screen**: Initial loading screen for seamless user experience.
 - **Form Validation**: Real-time validation using `react-hook-form` and `yup`.
 - **State Management**: Global auth state management using React Context API.
 - **Persistence**: User session persistence using `@react-native-async-storage/async-storage`.
@@ -29,7 +30,7 @@ src/
 ├── context/         # React Context (AuthContext)
 ├── interface/       # TypeScript interfaces and types
 ├── navigation/      # Navigation configuration (Auth vs App stacks)
-├── pages/           # Application screens (Login, Register, Home)
+├── pages/           # Application screens (Splash, Login, Register, Home)
 ├── schema/          # Validation schemas (Yup)
 └── utils/           # Helper functions
 ```
