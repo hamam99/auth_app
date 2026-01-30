@@ -5,7 +5,7 @@ import Images from '../../assets/images';
 import InputPassword from '../../components/InputPassword';
 import Input from '../../components/Input';
 import Button from '../../components/button';
-import { Toast } from 'toastify-react-native';
+import Toast from 'react-native-toast-message';
 import COLORS from '../../contants/Colors';
 import RouteName from '../../navigation/RouteName';
 import { RegisterSchema, RegisterType } from '../../schema/RegisterSchema';
