@@ -15,6 +15,9 @@ const Login = () => {
 
   const navigate = useNavigation().navigate;
 
+  const onLogin = () => {
+    navigate(RouteName.HOME);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Image source={Images.app_icon} style={styles.image} />
@@ -25,9 +28,9 @@ const Login = () => {
         value={password}
       />
 
-      <Button title="Login" onPress={() => {}} />
+      <Button title="Login" onPress={onLogin} />
       <TouchableOpacity onPress={() => navigate(RouteName.REGISTER)}>
-        <Text style={styles.register_text}>Create New Account</Text>
+        <Text style={styles.register_text}>Go to Signup</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

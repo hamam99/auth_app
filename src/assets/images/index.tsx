@@ -3,6 +3,7 @@ const Images = {
   password_show: require('./eye-show.png'),
   password_hide: require('./eye-hidden.png'),
   back: require('./back.png'),
+  user: require('./user.png'),
 };
 
 export default Images;

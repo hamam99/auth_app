@@ -7,9 +7,11 @@ import InputPassword from '../../components/InputPassword';
 import InputEmail from '../../components/InputEmail';
 import Button from '../../components/button';
 import { Toast } from 'toastify-react-native';
+import COLORS from '../../contants/Colors';
+import RouteName from '../../navigation/RouteName';
 
 const Register = () => {
-  const { goBack } = useNavigation();
+  const { goBack, navigate } = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -40,6 +42,10 @@ const Register = () => {
           value={confirmPassword}
         />
         <Button title="Register" onPress={onRegister} />
+
+        <TouchableOpacity onPress={() => navigate(RouteName.LOGIN)}>
+          <Text style={styles.login_text}>Go to Login</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -62,5 +68,11 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 16,
     paddingTop: 32,
+  },
+  login_text: {
+    color: COLORS.blue_1,
+    textAlign: 'center',
+    marginTop: 12,
+    fontSize: 13,
   },
 });
