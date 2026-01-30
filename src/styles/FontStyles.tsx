@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import Fonts from '../contants/Fonts';
+import Fonts from '../constants/Fonts';
 
 const fontStyles = StyleSheet.create({
   regular: {

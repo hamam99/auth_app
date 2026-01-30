@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import COLORS from '../../contants/Colors';
-import Fonts from '../../contants/Fonts';
+import COLORS from '../../constants/Colors';
+import Fonts from '../../constants/Fonts';
 import fontStyles from '../../styles/FontStyles';
 
 type Props = {

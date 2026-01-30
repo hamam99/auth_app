@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Images from '../../assets/images';
-import COLORS from '../../contants/Colors';
+import COLORS from '../../constants/Colors';
 import fontStyles from '../../styles/FontStyles';
 
 const Splash = () => {

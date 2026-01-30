@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Images from '../../assets/images';
-import COLORS from '../../contants/Colors';
+import COLORS from '../../constants/Colors';
 import Button from '../../components/button';
 import { useAuth } from '../../context/AuthContext';
 import fontStyles from '../../styles/FontStyles';

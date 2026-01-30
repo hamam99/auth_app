@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import COLORS from '../../contants/Colors';
+import COLORS from '../../constants/Colors';
 import Button from '../../components/button';
 import Input from '../../components/Input';
 import InputPassword from '../../components/InputPassword';
@@ -11,7 +11,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema, LoginType } from '../../schema/LoginSchema';
 import { useAuth } from '../../context/AuthContext';
-import Fonts from '../../contants/Fonts';
+import Fonts from '../../constants/Fonts';
 import fontStyles from '../../styles/FontStyles';
 
 const Login = () => {

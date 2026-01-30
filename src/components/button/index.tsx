@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import COLORS from '../../contants/Colors';
+import COLORS from '../../constants/Colors';
 import fontStyles from '../../styles/FontStyles';
 
 type Props = {

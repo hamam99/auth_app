@@ -6,7 +6,7 @@ import InputPassword from '../../components/InputPassword';
 import Input from '../../components/Input';
 import Button from '../../components/button';
 import Toast from 'react-native-toast-message';
-import COLORS from '../../contants/Colors';
+import COLORS from '../../constants/Colors';
 import RouteName from '../../navigation/RouteName';
 import { RegisterSchema, RegisterType } from '../../schema/RegisterSchema';
 import { Controller, useForm } from 'react-hook-form';

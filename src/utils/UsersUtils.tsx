@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import StorageKey from '../contants/StorageKey';
+import StorageKey from '../constants/StorageKey';
 import { ProfileType } from '../interface/ProfileType';
 
 export const getAllRegisteredUsers = async (): Promise<ProfileType[]> => {
