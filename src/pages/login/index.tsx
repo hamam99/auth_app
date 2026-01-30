@@ -1,16 +1,22 @@
 import { useState } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import COLORS from '../../contants/Colors';
 import Button from '../../components/button';
 import InputEmail from '../../components/InputEmail';
 import InputPassword from '../../components/InputPassword';
 import Images from '../../assets/images';
+import useNavigation from '../../navigation/useNavigation';
+import RouteName from '../../navigation/RouteName';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigation().navigate;
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image source={Images.app_icon} style={styles.image} />
       <InputEmail title="Email" onChangeText={setEmail} value={email} />
       <InputPassword
@@ -20,7 +26,10 @@ const Login = () => {
       />
 
       <Button title="Login" onPress={() => {}} />
-    </View>
+      <TouchableOpacity onPress={() => navigate(RouteName.REGISTER)}>
+        <Text style={styles.register_text}>Create New Account</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 };
 
@@ -46,5 +55,11 @@ const styles = StyleSheet.create({
     height: 80,
     alignSelf: 'center',
     marginBottom: 24,
+  },
+  register_text: {
+    color: COLORS.blue_1,
+    textAlign: 'center',
+    marginTop: 12,
+    fontSize: 13,
   },
 });

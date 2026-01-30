@@ -1,4 +1,5 @@
 import {
+  ColorValue,
   StyleProp,
   StyleSheet,
   Text,
@@ -14,6 +15,7 @@ type Props = {
   isDisabled?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
+  backgroundColor?: ColorValue | undefined;
 };
 const Button = ({
   title,
@@ -21,10 +23,23 @@ const Button = ({
   isDisabled = false,
   containerStyle = {},
   textStyle = {},
+  backgroundColor = COLORS.blue_1,
 }: Props) => {
+  const getBackgroundColor = () => {
+    if (isDisabled) {
+      return COLORS.border_2;
+    }
+    return backgroundColor;
+  };
   return (
     <TouchableOpacity
-      style={[styles.container, containerStyle]}
+      style={[
+        styles.container,
+        containerStyle,
+        {
+          backgroundColor: getBackgroundColor(),
+        },
+      ]}
       disabled={isDisabled}
       onPress={onPress}
     >
