@@ -9,6 +9,7 @@ import {
 import COLORS from '../../contants/Colors';
 import { useState } from 'react';
 import Images from '../../assets/images';
+import fontStyles from '../../styles/FontStyles';
 
 type Props = {
   value?: string;
@@ -28,7 +29,7 @@ const InputPassword = ({
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
     <View style={styles.container}>
-      <Text>{title}</Text>
+      <Text style={fontStyles.regular}>{title}</Text>
       <View>
         <TextInput
           placeholder={placeholder}
@@ -37,6 +38,7 @@ const InputPassword = ({
           secureTextEntry={!isPasswordVisible}
           style={[
             styles.input_text,
+            fontStyles.regular,
             {
               borderColor: errorMessage ? COLORS.error_1 : COLORS.border_2,
             },
@@ -54,7 +56,7 @@ const InputPassword = ({
           />
         </TouchableOpacity>
       </View>
-      <Text style={styles.error}>{errorMessage}</Text>
+      <Text style={[styles.error, fontStyles.regular]}>{errorMessage}</Text>
     </View>
   );
 };

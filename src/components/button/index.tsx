@@ -8,6 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import COLORS from '../../contants/Colors';
+import fontStyles from '../../styles/FontStyles';
 
 type Props = {
   title: string;
@@ -43,7 +44,7 @@ const Button = ({
       disabled={isDisabled}
       onPress={onPress}
     >
-      <Text style={[styles.text, textStyle]}>{title}</Text>
+      <Text style={[styles.text, fontStyles.regular, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };

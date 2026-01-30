@@ -1,13 +1,14 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Images from '../../assets/images';
 import COLORS from '../../contants/Colors';
+import fontStyles from '../../styles/FontStyles';
 
 const Splash = () => {
   return (
     <View style={styles.container}>
       <Image source={Images.app_icon} style={styles.logo} />
 
-      <Text style={styles.title}>Simple Auth App</Text>
+      <Text style={[styles.title, fontStyles.regular]}>Simple Auth App</Text>
     </View>
   );
 };

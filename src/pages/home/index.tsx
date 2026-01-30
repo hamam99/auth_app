@@ -4,6 +4,7 @@ import Images from '../../assets/images';
 import COLORS from '../../contants/Colors';
 import Button from '../../components/button';
 import { useAuth } from '../../context/AuthContext';
+import fontStyles from '../../styles/FontStyles';
 
 const Home = () => {
   const { user, logout } = useAuth();
@@ -12,10 +13,13 @@ const Home = () => {
     <SafeAreaView style={styles.container}>
       <Image source={Images.user} style={styles.image} />
       <View>
-        <Text style={[styles.text, styles.textName]}>
-          Welcome back, <Text style={styles.textNameBold}>{user?.name}</Text>
+        <Text style={[styles.text, styles.textName, fontStyles.regular]}>
+          Welcome back,{' '}
+          <Text style={[styles.textNameBold, fontStyles.bold]}>
+            {user?.name}
+          </Text>
         </Text>
-        <Text style={styles.text}>{user?.email}</Text>
+        <Text style={[styles.text, fontStyles.regular]}>{user?.email}</Text>
       </View>
       <Button
         title="Logout"

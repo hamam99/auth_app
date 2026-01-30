@@ -11,6 +11,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema, LoginType } from '../../schema/LoginSchema';
 import { useAuth } from '../../context/AuthContext';
+import Fonts from '../../contants/Fonts';
+import fontStyles from '../../styles/FontStyles';
 
 const Login = () => {
   const navigate = useNavigation().navigate;
@@ -74,7 +76,9 @@ const Login = () => {
         isDisabled={!isDirty || !isValid}
       />
       <TouchableOpacity onPress={handleSignUp}>
-        <Text style={styles.register_text}>Go to Signup</Text>
+        <Text style={[styles.register_text, fontStyles.regular]}>
+          Go to Signup
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -96,6 +100,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.border_2,
     paddingHorizontal: 4,
     height: 40,
+    fontFamily: Fonts.regular,
   },
   image: {
     width: 80,
@@ -108,5 +113,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 12,
     fontSize: 13,
+    fontFamily: Fonts.regular,
   },
 });

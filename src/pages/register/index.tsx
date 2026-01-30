@@ -12,6 +12,7 @@ import { RegisterSchema, RegisterType } from '../../schema/RegisterSchema';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAuth } from '../../context/AuthContext';
+import fontStyles from '../../styles/FontStyles';
 
 const Register = () => {
   const { goBack, navigate } = useNavigation();
@@ -115,7 +116,9 @@ const Register = () => {
         />
 
         <TouchableOpacity onPress={gotoLogin}>
-          <Text style={styles.login_text}>Go to Login</Text>
+          <Text style={[styles.login_text, fontStyles.regular]}>
+            Go to Login
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
