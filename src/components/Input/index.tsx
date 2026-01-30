@@ -9,11 +9,11 @@ type Props = {
   errorMessage?: string;
 };
 
-const InputEmail = ({
+const Input = ({
   value,
   onChangeText,
-  placeholder = 'Email',
-  title = 'Email',
+  placeholder = '',
+  title = '',
   errorMessage,
 }: Props) => {
   return (
@@ -35,7 +35,7 @@ const InputEmail = ({
   );
 };
 
-export default InputEmail;
+export default Input;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import COLORS from '../../contants/Colors';
 import Button from '../../components/button';
-import InputEmail from '../../components/InputEmail';
+import Input from '../../components/Input';
 import InputPassword from '../../components/InputPassword';
 import Images from '../../assets/images';
 import useNavigation from '../../navigation/useNavigation';
@@ -43,8 +43,9 @@ const Login = () => {
           required: true,
         }}
         render={({ field: { onChange, value } }) => (
-          <InputEmail
+          <Input
             title="Email"
+            placeholder="Email"
             onChangeText={onChange}
             value={value}
             errorMessage={errors?.email?.message}

@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import useNavigation from '../../navigation/useNavigation';
 import Images from '../../assets/images';
 import InputPassword from '../../components/InputPassword';
-import InputEmail from '../../components/InputEmail';
+import Input from '../../components/Input';
 import Button from '../../components/button';
 import { Toast } from 'toastify-react-native';
 import COLORS from '../../contants/Colors';
@@ -49,8 +49,25 @@ const Register = () => {
             required: true,
           }}
           render={({ field: { onChange, value } }) => (
-            <InputEmail
+            <Input
+              title="Name"
+              onChangeText={onChange}
+              value={value}
+              errorMessage={errors?.name?.message}
+              placeholder="Name"
+            />
+          )}
+          name="name"
+        />
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <Input
               title="Email"
+              placeholder="Email"
               onChangeText={onChange}
               value={value}
               errorMessage={errors?.email?.message}
@@ -108,7 +125,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    gap: 12,
     backgroundColor: 'white',
   },
   back: {
@@ -117,7 +133,6 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     flex: 1,
-    gap: 16,
     paddingTop: 32,
   },
   login_text: {
